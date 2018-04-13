@@ -1,0 +1,14 @@
+
+version: '2'
+
+services:
+  mysql:
+    build: .
+    image: mysql/mac
+    container_name: mysql-run
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    volumes:
+      - ~/Docker/mysql:/var/lib/mysql
+    ports:
+      - '3309:3306'
