@@ -2,6 +2,7 @@
 version: '2'
 
 services:
+
   mysql:
     build: .
     image: mysql/mac
@@ -11,4 +12,17 @@ services:
     volumes:
       - ~/Docker/mysql:/var/lib/mysql
     ports:
-      - '3309:3306'
+      - 3309:3306
+
+  mongo:
+    image: mongo:3.4
+    container_name: mongo-run
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+      - MONGODB_USER="root"
+      - MONGODB_PASS="123456"
+    volumes:
+      - ~/Docker/mongo/db:/data/db
+    ports:
+      - 27017:27017

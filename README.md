@@ -1,5 +1,5 @@
-# docker-mac-mysql
-Deploy mysql on Mac
+# docker-mac-service
+Deploy services on Mac
 
 ### Start
 
@@ -7,9 +7,14 @@ Deploy mysql on Mac
 $ docker-compose up --build -d
 ```
 
-### Mysql config
+### Mysql
 
 - host: 127.0.0.1
 - port: 3309
 - user: root
 - password: 123456
+
+### Mongodb
+
+- host: 127.0.0.1
+- port: 27017
