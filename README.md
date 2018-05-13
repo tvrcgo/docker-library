@@ -18,3 +18,8 @@ $ docker-compose up --build -d
 
 - host: 127.0.0.1
 - port: 27017
+
+### Redis
+
+- host: 127.0.0.1
+- port: 6379

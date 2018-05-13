@@ -26,3 +26,12 @@ services:
       - ~/Docker/mongo/db:/data/db
     ports:
       - 27017:27017
+
+  redis:
+    image: redis:4.0
+    container_name: redis-run
+    volumes:
+      - ~/Docker/redis/data:/data
+    ports:
+      - 6379:6379
+    command: ["redis-server", "--appendonly", "yes"]
