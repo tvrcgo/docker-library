@@ -11,7 +11,7 @@ services:
     volumes:
       - ~/Docker/mysql:/var/lib/mysql
     ports:
-      - 3309:3306
+      - 3306:3306
 
   mongo:
     image: mongo:3.4
