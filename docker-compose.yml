@@ -34,3 +34,18 @@ services:
     ports:
       - 6379:6379
     command: ["redis-server", "--appendonly", "yes"]
+
+  registry:
+    image: registry:2
+    container_name: registry
+    environment:
+      - REGISTRY_HTTP_ADDR=0.0.0.0:5000
+      - REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt
+      - REGISTRY_HTTP_TLS_KEY=/certs/domain.key
+    restart: always
+    volumes:
+      - ~/Docker/docker-hub/registry:/var/lib/registry
+      - ~/Docker/docker-hub/certs:/certs
+      - ~/Docker/docker-hub/config.yml:/etc/docker/registry/config.yml
+    ports:
+      - 5000:5000

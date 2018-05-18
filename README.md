@@ -23,3 +23,8 @@ $ ./install.sh
 
 - host: 127.0.0.1
 - port: 6379
+
+### Docker Registry
+
+- host: localhost
+- port: 5000
