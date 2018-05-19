@@ -42,6 +42,7 @@ services:
       - REGISTRY_HTTP_ADDR=0.0.0.0:5000
       - REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt
       - REGISTRY_HTTP_TLS_KEY=/certs/domain.key
+      - REGISTRY_STORAGE_DELETE_ENABLED=true
     restart: always
     volumes:
       - ~/Docker/docker-hub/registry:/var/lib/registry
