@@ -1,12 +1,13 @@
 sudo: required
 
-language: javascript
-
 services:
   - docker
 
-install:
-  - echo 'install'
+install: true
 
-scripts:
+script:
   - docker-compose build
+
+branches:
+  only:
+    - master
