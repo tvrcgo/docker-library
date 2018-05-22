@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+install:
+  - echo 'install'
+
+scripts:
+  - docker-compose build
