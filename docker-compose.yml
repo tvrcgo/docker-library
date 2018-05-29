@@ -51,10 +51,3 @@ services:
     ports:
       - 5000:5000
 
-  travis-python:
-    build:
-      context: ./travis
-      dockerfile: Dockerfile-python
-    image: travis-python
-    container_name: travis-python
-    restart: always
