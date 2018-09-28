@@ -1,0 +1,16 @@
+
+FROM travisci/ci-python:packer-1490914243
+
+LABEL maintainer="tvrcgo <tvrcgo@gmail.com>"
+
+RUN cd ~/builds \
+  git clone https://github.com/travis-ci/travis-build.git \
+  cd travis-build
+
+RUN gem install travis \
+  travis \
+  bundle install \
+  bundler add travis \
+  bundler binstubs travis
+
+CMD [ "/sbin/init" ]
