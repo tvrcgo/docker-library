@@ -45,18 +45,3 @@ services:
       - 9300:9300
       - 9200:9200
 
-  registry:
-    image: registry:2
-    container_name: registry
-    environment:
-      - REGISTRY_HTTP_ADDR=0.0.0.0:5000
-      - REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt
-      - REGISTRY_HTTP_TLS_KEY=/certs/domain.key
-      - REGISTRY_STORAGE_DELETE_ENABLED=true
-    volumes:
-      - ~/Docker/docker-hub/registry:/var/lib/registry
-      - ~/Docker/docker-hub/certs:/certs
-      - ~/Docker/docker-hub/config.yml:/etc/docker/registry/config.yml
-    ports:
-      - 5000:5000
-
