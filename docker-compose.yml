@@ -10,7 +10,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=123456
     volumes:
-      - ~/Docker/mysql:/var/lib/mysql
+      - ${DOCKER_HOME}/Docker/mysql:/var/lib/mysql
     ports:
       - 3306:3306
 
@@ -23,7 +23,7 @@ services:
       - MONGODB_USER="root"
       - MONGODB_PASS="123456"
     volumes:
-      - ~/Docker/mongo/db:/data/db
+      - ${DOCKER_HOME}/Docker/mongo/db:/data/db
     ports:
       - 27017:27017
 
@@ -31,7 +31,7 @@ services:
     image: redis:4.0
     container_name: redis
     volumes:
-      - ~/Docker/redis/data:/data
+      - ${DOCKER_HOME}/Docker/redis/data:/data
     ports:
       - 6379:6379
     command: ["redis-server", "--appendonly", "yes"]
@@ -40,7 +40,7 @@ services:
     image: elasticsearch:5-alpine
     container_name: es
     volumes:
-      - ~/Docker/elasticsearch/data:/usr/share/elasticsearch/data
+      - ${DOCKER_HOME}/Docker/elasticsearch/data:/usr/share/elasticsearch/data
     ports:
       - 9300:9300
       - 9200:9200
