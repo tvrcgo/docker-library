@@ -36,6 +36,15 @@ services:
       - 6379:6379
     command: ["redis-server", "--appendonly", "yes"]
 
+  elasticsearch:
+    image: elasticsearch:latest
+    container_name: es
+    volumes:
+      - ~/Docker/elasticsearch/data:/usr/share/elasticsearch/data
+    ports:
+      - 9300:9300
+      - 9200:9200
+
   registry:
     image: registry:2
     container_name: registry
