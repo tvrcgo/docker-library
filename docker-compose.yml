@@ -37,7 +37,7 @@ services:
     command: ["redis-server", "--appendonly", "yes"]
 
   elasticsearch:
-    image: elasticsearch:latest
+    image: elasticsearch:5-alpine
     container_name: es
     volumes:
       - ~/Docker/elasticsearch/data:/usr/share/elasticsearch/data
