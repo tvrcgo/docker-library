@@ -9,9 +9,9 @@ services:
       - REGISTRY_HTTP_TLS_KEY=/certs/domain.key
       - REGISTRY_STORAGE_DELETE_ENABLED=true
     volumes:
-      - ~/Docker/docker-hub/registry:/var/lib/registry
-      - ~/Docker/docker-hub/certs:/certs
-      - ~/Docker/docker-hub/config.yml:/etc/docker/registry/config.yml
+      - ${DOCKER_HOME}/Docker/docker-hub/registry:/var/lib/registry
+      - ${DOCKER_HOME}/Docker/docker-hub/certs:/certs
+      - ${DOCKER_HOME}/Docker/docker-hub/config.yml:/etc/docker/registry/config.yml
     ports:
       - 5000:5000
 
