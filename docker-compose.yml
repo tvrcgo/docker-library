@@ -39,8 +39,13 @@ services:
   elasticsearch:
     image: elasticsearch:5-alpine
     container_name: es
+    environment:
+      - bootstrap.memory_lock=true
+      - xpack.security.enabled=false
+      - discovery.type=single-node
     volumes:
       - ${DOCKER_HOME}/Docker/elasticsearch/data:/usr/share/elasticsearch/data
+      - ${DOCKER_HOME}/Docker/elasticsearch/config:/usr/share/elasticsearch/config
     ports:
       - 9300:9300
       - 9200:9200
