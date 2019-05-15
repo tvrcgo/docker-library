@@ -17,6 +17,7 @@ services:
   mongo:
     image: mongo:3.4
     container_name: mongo
+    restart: always
     environment:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
