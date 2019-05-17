@@ -24,7 +24,7 @@ $ ./install.sh
 - host: 127.0.0.1
 - port: 6379
 
-### Docker Registry
+### Kafka
 
-- host: localhost
-- port: 5000
+- host: 127.0.0.1
+- port: 9092

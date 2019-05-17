@@ -37,6 +37,29 @@ services:
       - 6379:6379
     command: ["redis-server", "--appendonly", "yes"]
 
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    mem_limit: 1024M
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka
+    mem_limit: 1024M
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_NO: 1
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://127.0.0.1:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_HEAP_OPTS: "-Xmx512M -Xms16M"
+    ports:
+      - 9092:9092
+
   elasticsearch:
     image: elasticsearch:5-alpine
     container_name: es
