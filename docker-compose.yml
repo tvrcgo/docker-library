@@ -74,3 +74,17 @@ services:
       - 9300:9300
       - 9200:9200
 
+  hbase:
+    image: harisekhon/hbase:1.4
+    container_name: hbase
+    depends_on:
+      - zookeeper
+    volumes:
+      - ${DOCKER_HOME}/Docker/hbase/data:/data
+    ports:
+      - 8080:8080
+      - 9090:9090
+      - 16000:16000
+      - 16010:16010
+      - 16201:16201
+      - 16301:16301
