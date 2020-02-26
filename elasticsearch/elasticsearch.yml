@@ -1,6 +1,6 @@
 
 cluster.name: local-docker-es
-node.name: tvrcgo-mbp15
+node.name: local-es-node
 bootstrap.memory_lock: true
 discovery.type: single-node
 discovery.zen.minimum_master_nodes: 1

@@ -61,7 +61,8 @@ services:
       - 9092:9092
 
   elasticsearch:
-    image: elasticsearch:5-alpine
+    build: ./elasticsearch
+    image: es:5-dms
     container_name: es
     environment:
       - bootstrap.memory_lock=true
