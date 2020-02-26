@@ -75,10 +75,10 @@ services:
       - 9200:9200
 
   hbase:
-    image: harisekhon/hbase:1.4
+    build: ./hbase
+    image: hbase:1.4-dms
     container_name: hbase
-    depends_on:
-      - zookeeper
+    hostname: hbase.local
     volumes:
       - ${DOCKER_HOME}/Docker/hbase/data:/data
     ports:
