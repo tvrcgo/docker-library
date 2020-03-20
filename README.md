@@ -34,8 +34,6 @@ $ ./install.sh
 
 - endpoint: http://localhost:9200
 
-复制 elasticsearch 目录下的文件到映射的配置文件目录
-
 ### HBase
 
 - REST API: http://localhost:8080

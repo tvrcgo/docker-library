@@ -70,7 +70,6 @@ services:
       - discovery.type=single-node
     volumes:
       - ${DOCKER_HOME}/Docker/elasticsearch/data:/usr/share/elasticsearch/data
-      - ${DOCKER_HOME}/Docker/elasticsearch/config:/usr/share/elasticsearch/config
     ports:
       - 9300:9300
       - 9200:9200
