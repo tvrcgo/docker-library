@@ -1,17 +1,16 @@
 version: '2'
 services:
-  registry:
-    image: registry:2
-    container_name: registry
+  docker-registry:
+    build: .
+    image: docker-registry:2-dms
+    container_name: docker-registry
     environment:
       - REGISTRY_HTTP_ADDR=0.0.0.0:5000
       - REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt
       - REGISTRY_HTTP_TLS_KEY=/certs/domain.key
       - REGISTRY_STORAGE_DELETE_ENABLED=true
     volumes:
-      - ${DOCKER_HOME}/Docker/docker-hub/registry:/var/lib/registry
-      - ${DOCKER_HOME}/Docker/docker-hub/certs:/certs
-      - ${DOCKER_HOME}/Docker/docker-hub/config.yml:/etc/docker/registry/config.yml
+      - ${DOCKER_HOME}/docker-registry/lib:/var/lib/registry
     ports:
       - 5000:5000
 
