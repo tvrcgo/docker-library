@@ -1,0 +1,10 @@
+version: '2'
+services:
+  runner:
+    build: .
+    image: actions-runner
+    container_name: actions-runner
+    restart: always
+    environment:
+      REPO: https://github.com/tvrcgo/pika-boilerplate
+      TOKEN: <token-from-github>
