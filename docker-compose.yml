@@ -17,7 +17,6 @@ services:
   mongo:
     image: mongo:3.4
     container_name: mongo
-    restart: always
     environment:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
@@ -62,7 +61,7 @@ services:
 
   elasticsearch:
     build: ./elasticsearch
-    image: es:5-dms
+    image: es:5-mac
     container_name: es
     environment:
       - bootstrap.memory_lock=true
@@ -76,7 +75,7 @@ services:
 
   hbase:
     build: ./hbase
-    image: hbase:1.4-dms
+    image: hbase:1.4-mac
     container_name: hbase
     hostname: hbase.local
     volumes:
