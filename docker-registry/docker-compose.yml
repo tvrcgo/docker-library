@@ -2,7 +2,7 @@ version: '2'
 services:
   docker-registry:
     build: .
-    image: docker-registry:2-dms
+    image: docker-registry:2-mac
     container_name: docker-registry
     environment:
       - REGISTRY_HTTP_ADDR=0.0.0.0:5000
