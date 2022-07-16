@@ -5,7 +5,6 @@ services:
 
   clash:
     build: .
-    image: clash:mac
     container_name: clash
     restart: always
     ports:

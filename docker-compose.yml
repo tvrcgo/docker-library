@@ -4,7 +4,7 @@ version: '2'
 services:
 
   mysql:
-    image: mysql:5.7
+    build: ./mysql
     container_name: mysql
     restart: always
     environment:
@@ -62,7 +62,6 @@ services:
 
   elasticsearch:
     build: ./elasticsearch
-    image: es:5-mac
     container_name: es
     environment:
       - bootstrap.memory_lock=true
@@ -76,7 +75,6 @@ services:
 
   hbase:
     build: ./hbase
-    image: hbase:1.4-mac
     container_name: hbase
     hostname: hbase.local
     volumes:
