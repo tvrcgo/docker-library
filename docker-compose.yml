@@ -4,7 +4,8 @@ version: '2'
 services:
 
   mysql:
-    build: ./mysql
+    image: mysql:5.7
+    platform: linux/amd64
     container_name: mysql
     restart: always
     environment:
@@ -46,6 +47,7 @@ services:
 
   kafka:
     image: wurstmeister/kafka
+    platform: linux/amd64
     container_name: kafka
     mem_limit: 1024M
     depends_on:
@@ -62,6 +64,8 @@ services:
 
   elasticsearch:
     build: ./elasticsearch
+    platform: linux/amd64
+    image: es:5-mac
     container_name: es
     environment:
       - bootstrap.memory_lock=true
