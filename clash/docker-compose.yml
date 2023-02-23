@@ -6,7 +6,9 @@ services:
   clash:
     build: .
     container_name: clash
-    restart: always
+    restart: unless-stopped
+    volumes:
+      - ~/Docker/clash/config:/root/.config/clash
     ports:
       - 8890:7890
       - 8891:7891

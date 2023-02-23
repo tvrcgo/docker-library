@@ -1,4 +1,4 @@
 
-FROM dreamacro/clash
+FROM dreamacro/clash-premium:latest
 
-COPY config/* /root/.config/clash/
+# COPY config/* /root/.config/clash/
