@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'clash/**'
+  workflow_dispatch:
 
 jobs:
   push-image:
