@@ -14,6 +14,6 @@ jobs:
 
       - name: Build and push image
         run: |
-          echo "$DOCKER_PASS" | docker login --username "$DOCKER_USER" --password-stdin docker.io
+          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin docker.io
           docker build -t docker.io/${DOCKER_REPO}:latest clash/
           docker push docker.io/${DOCKER_REPO}:latest
