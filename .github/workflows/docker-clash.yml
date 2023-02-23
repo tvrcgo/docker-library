@@ -5,6 +5,7 @@ on:
     paths:
       - 'clash/**'
       - '.github/workflows/docker-clash.yml'
+      - '!.github/workflows/**/*.md'
   workflow_dispatch:
 
 jobs:
