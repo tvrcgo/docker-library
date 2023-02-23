@@ -1,9 +1,7 @@
-# docker-mac-service
-
-Deploy services on Mac
+# docker-library
 
 ```bash
-$ ./install.sh
+$ docker-compose up --build -d
 ```
 
 ## Services
@@ -44,3 +42,7 @@ $ ./install.sh
 ### Actions Runner
 
 - [README](actions-runner/README.md)
+
+### Clash
+
+- port: 8890
