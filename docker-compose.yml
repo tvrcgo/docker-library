@@ -89,3 +89,15 @@ services:
       - 16010:16010
       - 16201:16201
       - 16301:16301
+
+  clash:
+    build: clash/
+    container_name: mac-clash
+    restart: unless-stopped
+    environment:
+      - CONFIG_URL=${CLASH_CONFIG_URL}
+    volumes:
+      - ~/Docker/clash/config:/root/config
+    ports:
+      - 8890:7890
+      - 8891:7891
