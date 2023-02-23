@@ -4,8 +4,8 @@ on:
   push:
     paths:
       - 'clash/**'
+      - '!clash/**/*.md'
       - '.github/workflows/docker-clash.yml'
-      - '!.github/workflows/**/*.md'
   workflow_dispatch:
 
 jobs:
