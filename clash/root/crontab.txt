@@ -1,1 +1,1 @@
-0 4 * * * sh /root/update-clash-config.sh > /proc/1/fd/1 2>&1
+0 */6 * * * (sh /root/update-clash-config.sh && rc-service clash restart) > /proc/1/fd/1 2>&1

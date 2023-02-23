@@ -1,0 +1,8 @@
+#!/sbin/openrc-run
+
+name=$RC_SVCNAME
+command="/clash"
+command_args="-d /root/config"
+command_user="root:root"
+command_background=true
+pidfile="/run/$RC_SVCNAME/$RC_SVCNAME.pid"

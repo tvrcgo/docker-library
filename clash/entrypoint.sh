@@ -7,4 +7,10 @@ sh /root/update-clash-config.sh
 /usr/sbin/crond
 
 # start clash
-/clash -d /root/config
+openrc
+rc-service clash start
+
+# pending process
+while [[ true ]]; do
+  sleep 1
+done
