@@ -15,7 +15,15 @@ jobs:
       - uses: actions/checkout@main
 
       - name: Build and push image
-        run: |
-          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin docker.io
-          docker build -t docker.io/${{ secrets.DOCKER_REPO }}:latest clash/
-          docker push docker.io/${{ secrets.DOCKER_REPO }}:latest
+        use: deploy-to-docker@master
+        with:
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: ${{ secrets.DOCKER_REPO }}
+          context: /clash
+      # - name: Build and push image
+      #   run: |
+      #     echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin docker.io
+      #     docker build -t docker.io/${{ secrets.DOCKER_REPO }}:latest clash/
+      #     docker push docker.io/${{ secrets.DOCKER_REPO }}:latest
