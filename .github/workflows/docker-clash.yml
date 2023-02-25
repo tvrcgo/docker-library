@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@main
 
       - name: Build and push image
-        use: deploy-to-docker@master
+        uses: deploy-to-docker@master
         with:
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
