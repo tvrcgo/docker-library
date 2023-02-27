@@ -23,8 +23,3 @@ jobs:
           repository: ${{ secrets.DOCKER_REPO }}
           context: ./clash
           dockerfile: ./clash/Dockerfile
-      # - name: Build and push image
-      #   run: |
-      #     echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin docker.io
-      #     docker build -t docker.io/${{ secrets.DOCKER_REPO }}:latest clash/
-      #     docker push docker.io/${{ secrets.DOCKER_REPO }}:latest
