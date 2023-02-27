@@ -1,11 +1,11 @@
-name: Push clash image
+name: Build clash image
 
 on:
   push:
     paths:
       - 'clash/**'
       - '!clash/**/*.md'
-      - '.github/workflows/docker-clash.yml'
+      - '.github/workflows/build-clash.yml'
   workflow_dispatch:
 
 jobs:
