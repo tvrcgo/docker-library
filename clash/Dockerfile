@@ -22,9 +22,7 @@ RUN set -eux; \
     touch /run/openrc/softlevel; \
     rc-update add clash; \
     # clean
-    # apk del .build-deps; \
     rm -rf /root/.cache; \
     rm -rf /var/cache/apk/*
-
 
 ENTRYPOINT [ "/entrypoint.sh" ]
