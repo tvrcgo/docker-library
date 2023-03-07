@@ -1,17 +1,10 @@
 # docker-library
 
 ```bash
-$ docker-compose up --build -d
+$ docker-compose -f docker-compose-m1.yml up --build -d
 ```
 
 ## Services
-
-### Mysql
-
-- host: 127.0.0.1
-- port: 3306
-- user: root
-- password: 123456
 
 ### Mongodb
 
@@ -27,22 +20,3 @@ $ docker-compose up --build -d
 
 - host: 127.0.0.1
 - port: 9092
-
-### ElasticSearch 5.x
-
-- endpoint: http://localhost:9200
-
-### HBase
-
-- REST API: http://localhost:8080
-- Thrift API: http://localhost:9090
-- Master Status: http://localhost:16010/master-status
-- RegionServer Status: http://localhost:16301/rs-status
-
-### Actions Runner
-
-- [README](actions-runner/README.md)
-
-### Clash
-
-- port: 8890
