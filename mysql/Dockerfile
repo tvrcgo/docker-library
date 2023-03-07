@@ -1,4 +1,4 @@
 
-FROM mysql/mysql-server:8.0.32
+FROM mysql:8-debian
 
 COPY etc /etc/mysql
