@@ -5,6 +5,7 @@ services:
 
   mysql:
     build: ./mysql
+    platform: linux/amd64
     container_name: mysql-dev
     environment:
       - MYSQL_ROOT_PASSWORD=123456
@@ -44,6 +45,7 @@ services:
 
   kafka:
     image: wurstmeister/kafka
+    platform: linux/amd64
     container_name: kafka-dev
     mem_limit: 1024M
     depends_on:
@@ -61,7 +63,8 @@ services:
   es:
     build:
       context: ./elasticsearch
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_m1
+    platform: linux/amd64
     container_name: es-dev
     volumes:
       - ${DOCKER_HOME}/elasticsearch/data:/usr/share/elasticsearch/data
