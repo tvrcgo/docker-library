@@ -1,0 +1,6 @@
+
+FROM elasticsearch:7.17.8
+
+WORKDIR /usr/share/elasticsearch
+
+COPY config_m1/* config/

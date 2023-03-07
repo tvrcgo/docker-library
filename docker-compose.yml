@@ -61,15 +61,12 @@ services:
     ports:
       - 9092:9092
 
-  elasticsearch:
-    build: ./elasticsearch
+  es:
+    build:
+      context: ./elasticsearch
+      dockerfile: Dockerfile_m1
     platform: linux/amd64
-    image: es:5-mac
-    container_name: es
-    environment:
-      - bootstrap.memory_lock=true
-      - xpack.security.enabled=false
-      - discovery.type=single-node
+    container_name: es-dev
     volumes:
       - ${DOCKER_HOME}/elasticsearch/data:/usr/share/elasticsearch/data
     ports:
