@@ -4,14 +4,13 @@ version: '2'
 services:
 
   mysql:
-    image: mysql/mysql-server:8.0.32
+    build: ./mysql
     platform: linux/amd64
-    container_name: mysql
+    container_name: mysql-dev
     environment:
       - MYSQL_ROOT_PASSWORD=123456
     volumes:
       - ${DOCKER_HOME}/mysql/data:/var/lib/mysql
-      - ${DOCKER_HOME}/mysql/etc:/etc/mysql
     ports:
       - 3306:3306
 
