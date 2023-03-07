@@ -16,7 +16,7 @@ services:
 
   mongo:
     image: mongo:3.4
-    container_name: mongo
+    container_name: mongo-dev
     environment:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
@@ -29,7 +29,7 @@ services:
 
   redis:
     image: redis:4.0
-    container_name: redis
+    container_name: redis-dev
     volumes:
       - ${DOCKER_HOME}/redis/data:/data
     ports:
@@ -46,7 +46,7 @@ services:
   kafka:
     image: wurstmeister/kafka
     platform: linux/amd64
-    container_name: kafka
+    container_name: kafka-dev
     mem_limit: 1024M
     depends_on:
       - zookeeper
@@ -74,7 +74,7 @@ services:
 
   hbase:
     build: ./hbase
-    container_name: hbase
+    container_name: hbase-dev
     hostname: hbase.local
     volumes:
       - ${DOCKER_HOME}/hbase/data:/data
@@ -88,7 +88,7 @@ services:
 
   clash:
     build: clash/
-    container_name: mac-clash
+    container_name: clash-dev
     restart: unless-stopped
     environment:
       - CONFIG_URL=${CLASH_CONFIG_URL}
