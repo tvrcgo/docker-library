@@ -4,19 +4,14 @@
 $ docker-compose -f docker-compose-m1.yml up --build -d
 ```
 
-## Services
+## library
 
-### Mongodb
-
-- host: 127.0.0.1
-- port: 27017
-
-### Redis
-
-- host: 127.0.0.1
-- port: 6379
-
-### Kafka
-
-- host: 127.0.0.1
-- port: 9092
+- [mysql](mysql/README.md)
+- [redis](redis/README.md)
+- [elasticsearch](elasticsearch/README.md)
+- [mongodb](mongodb/README.md)
+- [kafka](kafka/README.md)
+- [clash](clash/README.md)
+- [hbase](hbase/README.md)
+- [hadoop](hadoop/README.md)
+- [github-actions-runner](actions-runner/README.md)
