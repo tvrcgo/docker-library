@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+
+  es:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: es
+    volumes:
+      - ${DOCKER_HOME}/elasticsearch/data:/usr/share/elasticsearch/data
+    ports:
+      - 9300:9300
+      - 9200:9200

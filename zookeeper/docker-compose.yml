@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+
+  zookeeper:
+    build: .
+    container_name: zookeeper
+    mem_limit: 1024M
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181

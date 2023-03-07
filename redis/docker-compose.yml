@@ -1,0 +1,12 @@
+
+version: '2'
+
+services:
+
+  redis:
+    build: .
+    container_name: redis
+    volumes:
+      - ${DOCKER_HOME}/redis/data:/data
+    ports:
+      - 6379:6379

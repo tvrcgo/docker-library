@@ -4,92 +4,53 @@ version: '2'
 services:
 
   mysql:
-    build: ./mysql
+    extends:
+      file: mysql/docker-compose.yml
+      service: mysql
     container_name: mysql-dev
-    environment:
-      - MYSQL_ROOT_PASSWORD=123456
-    volumes:
-      - ${DOCKER_HOME}/mysql/data:/var/lib/mysql
-    ports:
-      - 3306:3306
 
   mongo:
-    build: ./mongodb
+    extends:
+      file: mongodb/docker-compose.yml
+      service: mongo
     container_name: mongo-dev
-    environment:
-      - MONGO_DATA_DIR=/data/db
-      - MONGO_LOG_DIR=/dev/null
-      - MONGODB_USER="root"
-      - MONGODB_PASS="123456"
-    volumes:
-      - ${DOCKER_HOME}/mongo/db:/data/db
-    ports:
-      - 27017:27017
 
   redis:
-    build: ./redis
+    extends:
+      file: redis/docker-compose.yml
+      service: redis
     container_name: redis-dev
-    volumes:
-      - ${DOCKER_HOME}/redis/data:/data
-    ports:
-      - 6379:6379
 
   zookeeper:
-    build: ./zookeeper
-    container_name: zookeeper
-    mem_limit: 1024M
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
+    extends:
+      file: zookeeper/docker-compose.yml
+      service: zookeeper
+    container_name: zookeeper-dev
 
   kafka:
-    build: ./kafka
+    extends:
+      file: kafka/docker-compose.yml
+      service: kafka
     container_name: kafka-dev
-    mem_limit: 1024M
     depends_on:
       - zookeeper
     environment:
-      KAFKA_BROKER_NO: 1
-      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://127.0.0.1:9092
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_HEAP_OPTS: "-Xmx512M -Xms16M"
-    ports:
-      - 9092:9092
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper-dev:2181
 
   es:
-    build:
-      context: ./elasticsearch
-      dockerfile: Dockerfile
+    extends:
+      file: elasticsearch/docker-compose.yml
+      service: es
     container_name: es-dev
-    volumes:
-      - ${DOCKER_HOME}/elasticsearch/data:/usr/share/elasticsearch/data
-    ports:
-      - 9300:9300
-      - 9200:9200
 
   hbase:
-    build: ./hbase
+    extends:
+      file: hbase/docker-compose.yml
+      service: hbase
     container_name: hbase-dev
-    hostname: hbase.local
-    volumes:
-      - ${DOCKER_HOME}/hbase/data:/data
-    ports:
-      - 8080:8080
-      - 9090:9090
-      - 16000:16000
-      - 16010:16010
-      - 16201:16201
-      - 16301:16301
 
   clash:
-    build: clash/
+    extends:
+      file: clash/docker-compose.yml
+      service: clash
     container_name: clash-dev
-    restart: unless-stopped
-    environment:
-      - CONFIG_URL=${CLASH_CONFIG_URL}
-    volumes:
-      - ~/Docker/clash/config:/root/config
-    ports:
-      - 8890:7890
-      - 8891:7891

@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+
+  mysql:
+    build: .
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    volumes:
+      - ${DOCKER_HOME}/mysql/data:/var/lib/mysql
+    ports:
+      - 3306:3306

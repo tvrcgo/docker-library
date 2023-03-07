@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+
+  hbase:
+    build: .
+    container_name: hbase
+    hostname: hbase.local
+    volumes:
+      - ${DOCKER_HOME}/hbase/data:/data
+    ports:
+      - 8080:8080
+      - 9090:9090
+      - 16000:16000
+      - 16010:16010
+      - 16201:16201
+      - 16301:16301
