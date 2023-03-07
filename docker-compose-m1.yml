@@ -35,6 +35,8 @@ services:
       file: docker-compose.yml
       service: es
     platform: linux/amd64
+    build:
+      dockerfile: Dockerfile_m1
 
   hbase:
     extends:
