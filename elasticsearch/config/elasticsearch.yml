@@ -1,8 +1,10 @@
 
-cluster.name: local-docker-es
-node.name: local-es-node
-bootstrap.memory_lock: true
-discovery.type: single-node
-discovery.zen.minimum_master_nodes: 1
+cluster.name: local-es5
+node.name: local-es5-node
+bootstrap:
+  memory_lock: true
+discovery:
+  type: single-node
+  zen.minimum_master_nodes: 1
 http.host: 0.0.0.0
-# xpack.security.enabled: false
+xpack.security.enabled: false
