@@ -34,7 +34,7 @@ services:
     extends:
       file: docker-compose.yml
       service: es
-    platform: linux/amd64
+    platform: linux/arm64
     build:
       dockerfile: Dockerfile_m1
 
