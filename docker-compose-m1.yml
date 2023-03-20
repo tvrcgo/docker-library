@@ -7,7 +7,9 @@ services:
     extends:
       file: docker-compose.yml
       service: mysql
-    platform: linux/arm64
+    build:
+      dockerfile: Dockerfile_m1
+    platform: linux/arm64/v8
 
   mongo:
     extends:
