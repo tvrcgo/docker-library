@@ -7,7 +7,7 @@ services:
     extends:
       file: docker-compose.yml
       service: mysql
-    platform: linux/amd64
+    platform: linux/arm64
 
   mongo:
     extends:
