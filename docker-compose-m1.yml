@@ -26,9 +26,14 @@ services:
 
   kafka:
     extends:
-      file: docker-compose.yml
+      file: kafka/docker-compose.yml
       service: kafka
-    platform: linux/amd64
+    platform: linux/arm64
+    container_name: kafka-dev
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper-dev:2181
 
   es:
     extends:

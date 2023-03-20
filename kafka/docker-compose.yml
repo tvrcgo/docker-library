@@ -6,8 +6,6 @@ services:
     build: .
     container_name: kafka
     mem_limit: 1024M
-    depends_on:
-      - zookeeper
     environment:
       KAFKA_BROKER_NO: 1
       KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
@@ -17,9 +15,3 @@ services:
       KAFKA_HEAP_OPTS: "-Xmx512M -Xms16M"
     ports:
       - 9092:9092
-
-  zookeeper:
-    extends:
-      file: ../zookeeper/docker-compose.yml
-      service: zookeeper
-    container_name: zookeeper
