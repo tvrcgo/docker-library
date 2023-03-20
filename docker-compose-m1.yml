@@ -54,3 +54,9 @@ services:
     extends:
       file: docker-compose.yml
       service: clash
+
+  pgsql:
+    extends:
+      file: docker-compose.yml
+      service: pgsql
+    platform: linux/arm/v6

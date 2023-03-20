@@ -54,3 +54,9 @@ services:
       file: clash/docker-compose.yml
       service: clash
     container_name: clash-dev
+
+  pgsql:
+    extends:
+      file: postgresql/docker-compose.yml
+      service: pgsql
+    container_name: pgsql-dev
