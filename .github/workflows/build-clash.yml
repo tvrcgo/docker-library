@@ -21,4 +21,3 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           tags: ${{ secrets.DOCKER_REPO }}:latest
           context: ./clash
-          dockerfile: ./clash/Dockerfile
