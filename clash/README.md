@@ -1,6 +1,6 @@
 # Clash
 
-docker image of clash.
+docker clash 增强版
 
 ```bash
 $ docker pull tvrcgo/clash:latest

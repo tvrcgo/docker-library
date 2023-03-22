@@ -15,11 +15,10 @@ jobs:
       - uses: actions/checkout@main
 
       - name: Build and push image
-        uses: tvrcgo/deploy-to-docker@master
+        uses: tvrcgo/docker-builder@master
         with:
-          registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: ${{ secrets.DOCKER_REPO }}
+          tags: ${{ secrets.DOCKER_REPO }}:latest
           context: ./clash
           dockerfile: ./clash/Dockerfile
