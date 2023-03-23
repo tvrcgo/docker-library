@@ -4,7 +4,7 @@ const app = express()
 
 app.set('port', process.env.PORT || 3000)
 
-app.use(express.static(__dirname + '/web'))
+app.use('/public', express.static(__dirname + '/web'))
 
 app.get('/', (req, res) => {
   res.type('html')
