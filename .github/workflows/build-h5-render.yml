@@ -1,0 +1,23 @@
+name: Build clash image
+
+on:
+  push:
+    paths:
+      - 'h5-render/**'
+      - '!h5-render/**/*.md'
+      - '.github/workflows/build-h5-render.yml'
+  workflow_dispatch:
+
+jobs:
+  push-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+
+      - name: Build and push image
+        uses: tvrcgo/docker-builder@master
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          tags: tvrcgo/h5-render:latest
+          context: ./h5-render
