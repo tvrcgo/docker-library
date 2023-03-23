@@ -1,4 +1,4 @@
-name: Build clash image
+name: Build h5-render image
 
 on:
   push:

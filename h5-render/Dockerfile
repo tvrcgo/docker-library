@@ -3,8 +3,7 @@ FROM node:16-alpine
 
 WORKDIR /app
 
-COPY package.json /app/
-COPY server.js /app/
+COPY app/* /app/
 
 RUN set -eux; \
     npm install --omit=dev; \
