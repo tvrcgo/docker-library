@@ -5,4 +5,7 @@ storage:
   delete:
     enabled: true
 http:
+  addr: :5000
   secret: secret-for-local
+  headers:
+    Access-Control-Allow-Origin: ['*']
