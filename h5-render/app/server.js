@@ -8,7 +8,7 @@ app.engine('html', require('ejs').renderFile)
 app.use('/public', express.static(__dirname + '/web'))
 app.get('/', (req, res) => {
   res.type('html')
-  res.render('web/index.html')
+  res.render(__dirname + '/web/index.html')
 })
 
 app.listen(app.get('port'), () => {
