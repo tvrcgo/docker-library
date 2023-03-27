@@ -60,3 +60,9 @@ services:
       file: postgresql/docker-compose.yml
       service: pgsql
     container_name: pgsql-dev
+
+  jenkins:
+    extends:
+      file: jenkins/docker-compose.yml
+      service: jenkins
+    container_name: jenkins-dev
