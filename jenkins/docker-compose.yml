@@ -4,8 +4,24 @@ services:
 
   jenkins:
     image: jenkins/jenkins:lts
-    container_name: jenkins
+    container_name: jenkins-master
     volumes:
-      - ${DOCKER_HOME}/jenkins/home:/var/jenkins_home
+      - ~/Docker/jenkins/home:/var/jenkins_home
     ports:
       - 8081:8080
+
+  agent:
+    build:
+      context: .
+      dockerfile: Dockerfile_agent
+    container_name: jenkins-agent
+    stdin_open: true
+
+  docker-api:
+    image: bobrik/socat
+    container_name: jenkins-docker-api
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 2375:2375
+    command: TCP-LISTEN:2375,fork UNIX-CONNECT:/var/run/docker.sock
