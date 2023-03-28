@@ -16,6 +16,9 @@ services:
       dockerfile: Dockerfile_agent
     container_name: jenkins-agent
     stdin_open: true
+    environment:
+      - JNLP_URL=$JNLP_URL
+      - SECRET=$SECRET
 
   docker-api:
     image: bobrik/socat
