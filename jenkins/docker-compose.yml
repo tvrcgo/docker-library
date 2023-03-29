@@ -14,11 +14,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_agent
+    image: jenkins-agent
     container_name: jenkins-agent
     stdin_open: true
-    environment:
-      - JNLP_URL=$JNLP_URL
-      - SECRET=$SECRET
+    command: java -jar /usr/share/jenkins/agent.jar -jnlpUrl ${JNLP_URL} -secret ${SECRET}
 
   docker-api:
     image: bobrik/socat
