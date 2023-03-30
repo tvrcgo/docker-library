@@ -12,6 +12,6 @@ services:
       - MONGODB_USER="root"
       - MONGODB_PASS="123456"
     volumes:
-      - ${DOCKER_HOME}/mongo/db:/data/db
+      - ~/Docker/mongo/db:/data/db
     ports:
       - 27017:27017

@@ -7,7 +7,7 @@ services:
     container_name: hbase
     hostname: hbase.local
     volumes:
-      - ${DOCKER_HOME}/hbase/data:/data
+      - ~/Docker/hbase/data:/data
     ports:
       - 8080:8080
       - 9090:9090

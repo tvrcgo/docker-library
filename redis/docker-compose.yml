@@ -7,6 +7,6 @@ services:
     build: .
     container_name: redis
     volumes:
-      - ${DOCKER_HOME}/redis/data:/data
+      - ~/Docker/redis/data:/data
     ports:
       - 6379:6379

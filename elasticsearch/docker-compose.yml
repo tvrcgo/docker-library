@@ -8,9 +8,16 @@ services:
       dockerfile: Dockerfile
     container_name: es
     volumes:
-      - ${DOCKER_HOME}/elasticsearch/data:/usr/share/elasticsearch/data
+      - ~/Docker/elasticsearch/data:/usr/share/elasticsearch/data
     environment:
       - ES_JAVA_OPTS=-Xms64m -Xmx256m
     ports:
       - 9300:9300
       - 9200:9200
+
+  es_arm64:
+    extends:
+      service: es
+    build:
+      dockerfile: Dockerfile_m1
+    platform: linux/arm64

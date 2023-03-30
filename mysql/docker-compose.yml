@@ -8,6 +8,13 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=123456
     volumes:
-      - ${DOCKER_HOME}/mysql/data:/var/lib/mysql
+      - ~/Docker/mysql/data:/var/lib/mysql
     ports:
       - 3306:3306
+
+  mysql_arm64:
+    extends:
+      service: mysql
+    build:
+      dockerfile: Dockerfile_m1
+    platform: linux/arm64/v8

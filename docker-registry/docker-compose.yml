@@ -9,7 +9,7 @@ services:
       - REGISTRY_HTTP_TLS_KEY=/certs/domain.key
       - REGISTRY_STORAGE_DELETE_ENABLED=true
     volumes:
-      - ${DOCKER_HOME}/docker-registry/lib:/var/lib/registry
+      - ~/Docker/docker-registry/lib:/var/lib/registry
     ports:
       - 5000:5000
 

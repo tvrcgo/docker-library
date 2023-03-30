@@ -11,6 +11,11 @@ services:
       - POSTGRES_PASSWORD=123456
       - TZ=Asia/Shanghai
     volumes:
-      - ${DOCKER_HOME}/pgsql/data:/var/lib/postgresql/data
+      - ~/Docker/pgsql/data:/var/lib/postgresql/data
     ports:
       - 5432:5432
+
+  pgsql_arm64:
+    extends:
+      service: pgsql
+    platform: linux/arm/v6
