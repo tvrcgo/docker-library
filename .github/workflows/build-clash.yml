@@ -29,3 +29,4 @@ jobs:
           password: ${{ secrets.ALIYUN_PASS }}
           tags: registry.cn-shenzhen.aliyuncs.com/tvrcgo/clash:latest
           registry: registry.cn-shenzhen.aliyuncs.com
+          context: ./clash
