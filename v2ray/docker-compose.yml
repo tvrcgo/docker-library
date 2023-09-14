@@ -6,8 +6,9 @@ services:
     build:
       context: .
       args:
-        DNS_AK: ${ALIYUN_AK}
-        DNS_SK: ${ALIYUN_SK}
+        DNS_SVC: ${DNS_SVC}
+        DNS_AK: ${DNS_AK}
+        DNS_SK: ${DNS_SK}
         DOMAIN: ${DOMAIN}
         MAIL: ${MAIL}
     image: ${REPO}:latest

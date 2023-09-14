@@ -5,6 +5,7 @@ COPY config.json /etc/v2ray/config.json
 COPY acme.sh /root/acme.sh
 COPY entrypoint.sh /entrypoint.sh
 
+ARG DNS_SVC
 ARG DNS_AK
 ARG DNS_SK
 ARG DOMAIN
