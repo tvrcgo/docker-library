@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+
+  v2ray:
+    build:
+      context: .
+      args:
+        DNS_AK: ${ALIYUN_AK}
+        DNS_SK: ${ALIYUN_SK}
+        DOMAIN: ${DOMAIN}
+        MAIL: ${MAIL}
+    image: ${REPO}:latest
+    container_name: v2ray
+    ports:
+      - 8989:8899
