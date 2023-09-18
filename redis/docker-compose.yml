@@ -10,3 +10,12 @@ services:
       - ~/Docker/redis/data:/data
     ports:
       - 6379:6379
+
+  nas:
+    image: redis:4.0
+    container_name: redis
+    volumes:
+      - /share/Container/redis/data:/data
+    ports:
+      - 6379:6379
+    command: redis-server --appendonly yes --loglevel warning
