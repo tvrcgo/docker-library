@@ -18,3 +18,14 @@ services:
     build:
       dockerfile: Dockerfile_m1
     platform: linux/arm64/v8
+
+  nas:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    volumes:
+      - /share/Container/mysql/data:/var/lib/mysql
+      - /share/Container/mysql/etc:/etc/mysql/conf.d
+    ports:
+      - 3306:3306
