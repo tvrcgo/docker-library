@@ -19,3 +19,15 @@ services:
     extends:
       service: pgsql
     platform: linux/arm/v6
+
+  nas:
+    image: postgresql:16
+    container_name: pgsql
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=123456
+      - TZ=Asia/Shanghai
+    volumes:
+      - ~/Docker/pgsql/data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
