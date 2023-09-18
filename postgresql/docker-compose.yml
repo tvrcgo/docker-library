@@ -31,3 +31,15 @@ services:
       - ~/Docker/pgsql/data:/var/lib/postgresql/data
     ports:
       - 5432:5432
+
+  pgvector:
+    image: ankane/pgvector
+    container_name: pgvector
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=123456
+      - TZ=Asia/Shanghai
+    volumes:
+      - ~/Docker/pgsql/vector_data:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
