@@ -12,7 +12,7 @@ services:
       - 6379:6379
 
   nas:
-    image: redis:4.0
+    image: redis:alpine
     container_name: redis
     volumes:
       - /share/Container/redis/data:/data
