@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  acme:
+    build:
+      context: .
+    image: acme-runner:latest
+    container_name: acme-runner
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ~/Docker/acme/keys:/root/ssl_keys
