@@ -28,7 +28,7 @@ services:
       - POSTGRES_PASSWORD=123456
       - TZ=Asia/Shanghai
     volumes:
-      - ~/Docker/pgsql/data:/var/lib/postgresql/data
+      - /share/Container/pgsql/data:/var/lib/postgresql/data
     ports:
       - 5432:5432
 
