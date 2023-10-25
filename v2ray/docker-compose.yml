@@ -5,12 +5,6 @@ services:
   v2ray:
     build:
       context: .
-      args:
-        DNS_SVC: ${DNS_SVC}
-        DNS_AK: ${DNS_AK}
-        DNS_SK: ${DNS_SK}
-        DOMAIN: ${DOMAIN}
-        MAIL: ${MAIL}
     image: ${REPO}:latest
     container_name: v2ray
     ports:
