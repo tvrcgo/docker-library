@@ -14,6 +14,8 @@ RUN set -eux; \
     openssl \
     tzdata \
   ;\
+  # install acme.sh
+  curl https://get.acme.sh | sh; \
   # clear
   rm -rf /root/.cache; \
   rm -rf /var/cache/apk/*
