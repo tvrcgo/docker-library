@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+
+  jellyfin_arm:
+    build: .
+    image: tvrcgo/jellyfin
+    container_name: jellyfin
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Asia/Shanghai
+    devices:
+      - /dev/dri:/dev/dri
+    volumes:
+      - /share/Container/jellyfin/config:/config
+      - /share/TV:/shares/tv:ro
+      - /share/Movie:/shares/movie:ro
+      - /share/Music:/shares/music:ro
+      - /share/User/CloudDrive:/shares/clouddrive:ro
+    ports:
+      - 8098:8096
+      - 8922:8920
+
+  jellyfin_amd64:
+    image: nyanmisaka/jellyfin
+    container_name: jellyfin
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Asia/Shanghai
+    devices:
+      - /dev/dri:/dev/dri
+    volumes:
+      - /share/Container/jellyfin/config:/config
+      - /share/TV:/shares/tv:ro
+      - /share/Movie:/shares/movie:ro
+      - /share/Music:/shares/music:ro
+      - /share/User/CloudDrive:/shares/clouddrive:ro
+    ports:
+      - 8098:8096
+      - 8922:8920
