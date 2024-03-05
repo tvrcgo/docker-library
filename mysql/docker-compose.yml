@@ -1,5 +1,7 @@
 version: '2'
 
+name: dev
+
 services:
 
   mysql:
@@ -18,6 +20,12 @@ services:
     build:
       dockerfile: Dockerfile_m1
     platform: linux/arm64/v8
+
+  mysql_win:
+    extends:
+      service: mysql
+    volumes:
+      - D:/Docker/mysql/data:/var/lib/mysql
 
   nas:
     image: mysql:8.0

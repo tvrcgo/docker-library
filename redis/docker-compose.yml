@@ -1,6 +1,8 @@
 
 version: '2'
 
+name: dev
+
 services:
 
   redis:
@@ -8,6 +10,14 @@ services:
     container_name: redis
     volumes:
       - ~/Docker/redis/data:/data
+    ports:
+      - 6379:6379
+
+  redis_win:
+    build: .
+    container_name: redis
+    volumes:
+      - D:/Docker/redis/data:/data
     ports:
       - 6379:6379
 
