@@ -1,11 +1,13 @@
 
 version: '3'
 
+name: dev
+
 services:
 
   pgsql:
     build: .
-    container_name: pgsql-dev
+    container_name: pgsql
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=123456
@@ -19,6 +21,12 @@ services:
     extends:
       service: pgsql
     platform: linux/arm/v6
+
+  pgsql_win:
+    extends:
+      service: pgsql
+    volumes:
+      - D:/Docker/pgsql/data:/var/lib/postgresql/data
 
   nas:
     image: postgresql:16
