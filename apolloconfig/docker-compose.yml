@@ -1,0 +1,48 @@
+version: '2'
+
+name: apollo
+
+services:
+
+  config_svc:
+    image: apolloconfig/apollo-configservice
+    container_name: configservice
+    volumes:
+      - D:/Docker/apollo/logs:/opt/logs
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/apolloconfig?characterEncoding=utf8
+      - SPRING_DATASOURCE_USERNAME=arya
+      - SPRING_DATASOURCE_PASSWORD=123456
+    ports:
+      - 18080:8080
+
+  admin_svc:
+    depends_on:
+      - config_svc
+    image: apolloconfig/apollo-adminservice
+    container_name: adminservice
+    volumes:
+      - D:/Docker/apollo/logs:/opt/logs
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/apolloconfig?characterEncoding=utf8
+      - SPRING_DATASOURCE_USERNAME=arya
+      - SPRING_DATASOURCE_PASSWORD=123456
+    ports:
+      - 18090:8090
+
+  portal:
+    depends_on:
+      - admin_svc
+    image: apolloconfig/apollo-portal
+    container_name: portal
+    volumes:
+      - D:/Docker/apollo/logs:/opt/logs
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/apolloportal?characterEncoding=utf8
+      - SPRING_DATASOURCE_USERNAME=arya
+      - SPRING_DATASOURCE_PASSWORD=123456
+      - APOLLO_PORTAL_ENVS=dev
+      - DEV_META=http://localhost:18080
+    ports:
+      - 18070:8070
+
