@@ -16,6 +16,8 @@ services:
   redis_win:
     build: .
     container_name: redis
+    environment:
+      - REDIS_PASSWORD=5Rv4fV5G3pv4eU2WHEQg
     volumes:
       - D:/Docker/redis/data:/data
     ports:
