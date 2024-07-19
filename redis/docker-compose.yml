@@ -8,6 +8,8 @@ services:
   redis:
     build: .
     container_name: redis
+    environment:
+      - REDIS_PASSWORD=123456
     volumes:
       - ~/Docker/redis/data:/data
     ports:
@@ -17,7 +19,7 @@ services:
     build: .
     container_name: redis
     environment:
-      - REDIS_PASSWORD=5Rv4fV5G3pv4eU2WHEQg
+      - REDIS_PASSWORD=123456
     volumes:
       - D:/Docker/redis/data:/data
     ports:
