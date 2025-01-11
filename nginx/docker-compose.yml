@@ -7,7 +7,9 @@ services:
     container_name: nginx
     volumes:
       - /share/Container/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - /share/Container/nginx/conf/conf.d:/etc/nginx/conf.d
       - /share/Container/nginx/cert:/etc/nginx/cert
+      - /share/Container/nginx/html:/etc/nginx/html
       - /share/Container/nginx/log:/var/log/nginx
     ports:
       - 9000:80

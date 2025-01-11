@@ -1,7 +1,7 @@
 
 FROM nginx:alpine
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY conf /etc/nginx/conf
 COPY cert /etc/nginx/cert
 
 RUN set -eux; \
