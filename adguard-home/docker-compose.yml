@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  adguardhome:
+    image: adguard/adguardhome
+    container_name: adguardhome
+    restart: unless-stopped
+    volumes:
+      - /volume1/docker/adguard-home/data:/opt/adguard/data
+      - /volume1/docker/adguard-home/conf:/opt/adguard/conf
+    ports:
+      - 3053:53/tcp
+      - 3053:53/udp
+      - 3000:3000
