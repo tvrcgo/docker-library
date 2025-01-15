@@ -1,0 +1,16 @@
+name: home-assistant
+
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: homeassistant/home-assistant:latest
+    volumes:
+      - /volume1/docker/homeassistant:/config
+    environment:
+      - TZ=Asia/Shanghai
+    network_mode:
+      - host
+    ports:
+      - '8123:8123'
+    restart: unless-stopped
+
