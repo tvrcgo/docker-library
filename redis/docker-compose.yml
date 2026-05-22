@@ -1,6 +1,3 @@
-
-version: '2'
-
 name: dev
 
 services:
@@ -8,6 +5,7 @@ services:
   redis:
     build: .
     container_name: redis
+    restart: unless-stopped
     environment:
       - REDIS_PASSWORD=123456
     volumes:
@@ -18,16 +16,18 @@ services:
   redis_win:
     build: .
     container_name: redis
+    restart: unless-stopped
     environment:
       - REDIS_PASSWORD=123456
     volumes:
-      - D:/Docker/redis/data:/data
+      - /mnt/d/Docker/redis/data:/data
     ports:
       - 6379:6379
 
   nas:
     image: redis:alpine
     container_name: redis
+    restart: unless-stopped
     volumes:
       - /share/Container/redis/data:/data
     ports:

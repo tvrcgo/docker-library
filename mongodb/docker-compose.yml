@@ -1,6 +1,4 @@
 
-version: '2'
-
 name: dev
 
 services:
@@ -8,6 +6,7 @@ services:
   mongo:
     build: .
     container_name: mongo
+    restart: unless-stopped
     environment:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
@@ -21,12 +20,13 @@ services:
   mongo_win:
     build: .
     container_name: mongo
+    restart: unless-stopped
     environment:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=123456
     volumes:
-      - D:/Docker/mongo/db:/data/db
+      - /mnt/d/Docker/mongo/db:/data/db
     ports:
       - 27017:27017
